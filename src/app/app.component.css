@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+    font: 14px Verdana;
+}
+table, th, td {
+    border: solid 1px #999999;
+    border-collapse: collapse;
+    padding: 2px 3px;
+    text-align: center;
+}
+th {
+    font-weight: bold;
+}
+
+table tr.highlight {
+    background-color:orchid !important;
+    
+}

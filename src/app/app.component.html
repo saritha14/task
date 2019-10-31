@@ -1,0 +1,47 @@
+
+<div>
+ <input type="text" [(ngModel)]="userFilter.title" placeholder="name">
+</div>
+ <table class="table table-bordered" *ngIf="details">
+<thead>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Created_at</th>
+      <th>Author</th>
+  </thead>
+  <tbody>
+
+      <tr *ngFor="let e of details | filterBy: userFilter;" (click)="submit(e)" data-toggle="modal" data-target="#myModal" (click)="highlightRow(e)"  [ngClass] = "{'highlight' : e.title == selectedName}">
+          
+            
+            
+          <td>{{e.title}}</td>
+          <td>{{e.url}}</td>
+          <td>{{e.created_at | date : 'dd/MM/yyyy,h:mm a,EEEE'}}</td>
+          <td>{{e.author}} </td>
+          <!-- <td>  <button type="button" (click)="submit(e)" class="btn btn-primary" data-toggle="modal" data-target="#myModal"></button>Click</td> -->
+          
+           </tr>
+  </tbody>
+
+</table>
+
+<div class="modal" id="myModal">
+     <div class="modal-dialog">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h4 class="modal-title">Details</h4>
+           <button type="button" class="close" data-dismiss="modal">&times;</button>
+         </div>
+           <div class="modal-body">
+       {{disp|json}}
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+       </div>
+     </div>
+
+  
+  
